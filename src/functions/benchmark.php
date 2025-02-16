@@ -183,3 +183,34 @@ function showProgressGenerateList($message, $current, $total)
   flush();
   usleep(50000);
 }
+
+// array of benchmark results
+$benchmarkResults = [];
+
+/**
+ * Run benchmark for a single algorithm and save the results in a global array.
+ *
+ * @param string   $algorithmName name of the algorithm 
+ * @param callable $algorithm     function to benchmark
+ * @param array    $params        parameters to pass to the algorithm
+ */
+function runAndPrintBenchmark(string $algorithmName, callable $algorithm, array $params)
+{
+  global $benchmarkResults;
+
+  $benchmarkResults[$algorithmName] = benchmark($algorithm, $params);
+}
+
+/**
+ * Finalize the benchmark and print the results.
+ */
+function finalizeBenchmark()
+{
+  global $benchmarkResults;
+
+  // check if benchmark results are not empty
+  if (!empty($benchmarkResults)) {
+    printBenchmarkTable($benchmarkResults);
+    summarizeBenchmarks($benchmarkResults);
+  }
+}
