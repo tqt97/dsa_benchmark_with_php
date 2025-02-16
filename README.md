@@ -157,6 +157,8 @@ cd benchmark-project
 
 #### 2️⃣ 🚀 Usage
 
+>📢 **Guide:** How to implement benchmark. [how_to_implement_benchmark.md](./how_to_implement_benchmark.md)
+
 ##### **Run a benchmark**
 ```sh
 php index.php benchmark benchmarks/array/1_sum.php
