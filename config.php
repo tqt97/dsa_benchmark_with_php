@@ -16,7 +16,7 @@ define("WHITE", "\033[37m");
 
 // Log Mode
 define('LOG_TYPES', $env['LOG_TYPES'] ?? ['log', 'md']);
-$logMode = $argv[2] ?? "md";
+$logMode = $argv[2] ?? ($env['LOG_MODE'] ?? 'log');
 if (!in_array($logMode, LOG_TYPES)) {
   die("\n❌ ERROR: Invalid log mode. Must be one of: " . implode(", ", LOG_TYPES) . "\n");
 }
